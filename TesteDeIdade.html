@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        while (true) {
+            var name = prompt('Digite o nome do cliente:');
+
+            // ETAPA 1: Checa se o usuário clicou em "Cancelar".
+            if (name === null) {
+                alert('Operação cancelada. O cadastro será reiniciado.');
+                continue; 
+            }
+
+            // ETAPA 2: Checa se o texto está vazio.
+            if (name.trim() === "") {
+                alert('Nome inválido. O campo não pode estar em branco.');
+                continue;
+            }
+
+            // Se o nome passou, pedimos a idade.
+            var ageText = prompt('Digite a idade de ' + name + ':');
+
+            // ETAPA 3: Checa o "Cancelar" para a idade.
+            if (ageText === null) {
+                alert('Cadastro de idade cancelado. O processo para "' + name + '" será reiniciado.');
+                continue;
+            }
+
+            // ETAPA 4: Checa o texto vazio para a idade.
+            if (ageText.trim() === "") {
+                alert('Idade não foi digitada. O processo para "' + name + '" será reiniciado.');
+                continue;
+            }
+            
+            // ETAPA 5: Converte para número e valida.
+            var age = Number(ageText);
+            
+            if (isNaN(age) || age < 0 || age > 130) {
+                alert('Valor de idade inválido! Por favor, digite um número entre 0 e 130.');
+                continue;
+            }
+
+            // --- CLASSIFICAÇÃO FINAL ---
+            if (age <= 1) {
+                alert(name + ' é um bebê.');
+            } else if (age < 13) {
+                alert(name + ' é uma criança.');
+            } else if (age < 18) {
+                alert(name + ' é um adolescente.');
+            } else if (age < 60) {
+                alert(name + ' é um adulto.');
+            } else {
+                alert(name + ' é um idoso.');
+            }
+        }
+    </script>    
+</body>
+</html>
